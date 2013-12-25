@@ -33,6 +33,12 @@ gem 'zurb-foundation'
 # User authentication
 gem 'devise'
 
+# Makes rails forms simple
+gem 'simple_form'
+
+# Makes it easier to handle nested forms
+gem 'cocoon'
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'shoulda'

@@ -1,5 +1,11 @@
 RubyFlash::Application.routes.draw do
+  root "welcome#index"
   devise_for :users
+
+  resources :groups
+  resources :cards
+  resources :topics
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,13 @@
+<div class="row">
+	<h5>Group Index Page</h5>
+</div>
+
+<div class="row">
+	<table>
+	<% @groups.each do |group| %>
+		<tr>
+			<th><%= group.name %></th>
+		</tr>
+	<% end %>
+	</table>
+</div>
