@@ -42,7 +42,7 @@ class GroupsController < ApplicationController
 
 	private
 
-	def set_book
+	def set_group
 		@group = Group.find(params[:id])
 	end
 

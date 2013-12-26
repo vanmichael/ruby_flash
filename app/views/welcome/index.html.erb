@@ -1,5 +1,5 @@
 <div class="row">
-	<h1>Welcome To Ruby Flash</h1>
+	<h1>Welcome To Ruby Flash <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" if user_signed_in? %></h1> 
 </div>
 
 <canvas id="canvas">
