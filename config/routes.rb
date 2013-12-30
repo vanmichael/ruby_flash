@@ -2,7 +2,12 @@ RubyFlash::Application.routes.draw do
   root "welcome#index"
   devise_for :users
 
-  resources :groups
+  resources :groups do
+    member do
+      post 'join'
+    end
+  end
+
   resources :cards
   resources :topics
   

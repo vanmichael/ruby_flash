@@ -33,7 +33,8 @@ function step() {
       rubymethods[2] = "a.sample";
       rubymethods[3] = "a.shuffle";
       rubymethods[4] = "a.transpose";
-      rubymethods[5] = "Van is awesome!";
+      rubymethods[5] = "Sam is mean!";
+      rubymethods[6] = "Sam who?"
 
       var randomIndex = Math.floor(Math.random()*rubymethods.length);
 

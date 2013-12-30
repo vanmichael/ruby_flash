@@ -1,3 +1,7 @@
+<% @group.cards.each do |c| %>
 <div class="card">
-
+	<p><%= c.title %></p>
+	<p><%= c.question %></p>
+	<p><%= c.answer %></p>
 </div>
+<% end %>

@@ -1,3 +1,13 @@
 <div class="row">
 	<h5>Index of Cards</h5>
 </div>
+
+<div class="row">
+	<% @cards.each do |c| %>
+		<div class="card">
+		<p><%= c.title %></p>
+		<p><%= c.question %></p>
+		<p><%= c.answer %></p>
+		</div>
+	<% end %>
+</div>

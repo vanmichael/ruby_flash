@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-	before_action :set_group, only: [:show, :edit, :update, :destroy]
+	before_action :set_group, only: [:show, :edit, :update, :destroy, :join]
 
 	def index
 		@groups = Group.all
@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
 	end
 
 	def show
-
+		@card = Card.new
 	end
 
 	def edit
@@ -40,6 +40,14 @@ class GroupsController < ApplicationController
 		end
 	end
 
+	#Custom Actions
+
+	def join
+		@membership = Membership.new(user_id: current_user[:id], group_id: params[:id])
+		@membership.save
+		redirect_to @group
+	end
+
 	private
 
 	def set_group
@@ -49,5 +57,4 @@ class GroupsController < ApplicationController
 	def group_params
 		params.require(:group).permit(:name)
 	end
-
 end

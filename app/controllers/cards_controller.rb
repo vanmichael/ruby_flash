@@ -14,7 +14,7 @@ class CardsController < ApplicationController
 
 		respond_to do |format|
 			if @card.save
-				format.html { redirect_to @card, notice: "Card Created!"}
+				format.html { redirect_to group_path(card_params[:group_id]), notice: "Card Created!"}
 			else
 				format.html { render action: 'new', notice: "Card Not Created!" }
 			end
