@@ -39,12 +39,18 @@ gem 'simple_form'
 # Makes it easier to handle nested forms
 gem 'cocoon'
 
+group :test do
+	gem 'shoulda'
+	gem 'launchy'
+	gem 'valid_attribute'
+	gem 'capybara'
+end
+
 group :development, :test do
 	gem 'rspec-rails'
-	gem 'shoulda'
-	gem 'valid_attribute'
 	gem 'factory_girl_rails'
 	gem 'pry-rails'
+	gem 'quiet_assets'
 end
 
 group :doc do

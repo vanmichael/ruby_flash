@@ -27,6 +27,15 @@ describe User do
 	  expect(user_two.save).to eq false
   end
 
+  it "should have a matching password confirmation for the password" do
+      user = User.new
+      user.password = 'password'
+      user.password_confirmation = 'anotherpassword'
+
+      expect(user).to_not be_valid
+      expect(user.errors[:password_confirmation]).to_not be_blank
+  end
+
   #Associations
 
   it { should have_many :memberships }

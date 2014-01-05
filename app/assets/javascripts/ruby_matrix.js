@@ -20,6 +20,7 @@ function step() {
       colorcodes[0] = "#F7EB63";
       colorcodes[1] = "#CC0000";
       colorcodes[2] = "#960303";
+      colorcodes[3] = "#FFFFFF";
 
       var randomColor = Math.floor(Math.random()*colorcodes.length);
 
@@ -33,8 +34,8 @@ function step() {
       rubymethods[2] = "a.sample";
       rubymethods[3] = "a.shuffle";
       rubymethods[4] = "a.transpose";
-      rubymethods[5] = "Sam is mean!";
-      rubymethods[6] = "Sam who?"
+      rubymethods[5] = "Sam";
+      rubymethods[6] = "Sam is mean";
 
       var randomIndex = Math.floor(Math.random()*rubymethods.length);
 
