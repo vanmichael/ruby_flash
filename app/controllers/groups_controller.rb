@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
 		@group = Group.new(group_params)
 
 		respond_to do |format|
-			if @group.save
+			if @group.add
 				format.html { redirect_to new_group_path, notice: 'Group created!' }
 			else
 				format.html { render action: 'new', notice: 'Group Not Created!' }

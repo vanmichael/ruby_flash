@@ -41,6 +41,7 @@ group :test do
 	gem 'launchy'
 	gem 'valid_attribute'
 	gem 'capybara'
+	gem 'email_spec'
 end
 
 group :development, :test do
@@ -48,6 +49,7 @@ group :development, :test do
 	gem 'factory_girl_rails'
 	gem 'pry-rails'
 	gem 'quiet_assets'
+	gem 'dotenv-rails'
 end
 
 group :doc do

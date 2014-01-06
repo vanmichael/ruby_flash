@@ -13,7 +13,9 @@ feature 'sign up', %q{
 	# * If any of the above are blank, I get an error message
 	# * If I specify valid information, I register my account and am authenticated
 
-	scenario 'specifying valid and required information' do
+	scenario 'specifying valid and required information, registers user' do
+		
+
 		visit root_path
 		click_link 'Sign Up'
 		fill_in 'First Name', with: 'Van'
@@ -25,6 +27,7 @@ feature 'sign up', %q{
 
 		expect(page).to have_content("You Logged in successfully!")
 		expect(page).to have_content("Sign Out")
+
 	end
 
 	scenario 'required information is not supplied' do
