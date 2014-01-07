@@ -6,7 +6,9 @@ class NewGroupConfirmation < ActionMailer::Base
   #
   #   en.new_group_confirmation.notification.subject
   #
-  def notification
+  def notification(group)
+    @group = group
+    
     @greeting = "Hi"
 
     mail to: "to@example.org",
