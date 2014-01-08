@@ -14,6 +14,11 @@ feature 'user creates new group', %q{
 	# * The user should be able to find a link to create a group deck.
 	# * The user should be able to invite other users to the group.
 	# * The user's should be able to set a topic name for the flashcard deck.
+	let(:user) {FactoryGirl.create(:user)}
+
+	before(:each) do
+		sign_in_as(user)
+	end
 
 	scenario 'specifying valid and required information, adds new group' do
 		ActionMailer::Base.deliveries = []
@@ -21,6 +26,7 @@ feature 'user creates new group', %q{
 		group_name = 'Ruby Enumerables'
 
 		visit root_path
+		
 		click_link 'Groups'
 		fill_in 'Group Name', with: group_name
 		click_button 'Create Group'

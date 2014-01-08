@@ -36,6 +36,9 @@ gem 'simple_form'
 # Makes it easier to handle nested forms
 gem 'cocoon'
 
+#Makes running your Rails app easier.
+#gem 'rails_12factor', group: :production
+
 group :test do
 	gem 'shoulda'
 	gem 'launchy'
@@ -50,6 +53,7 @@ group :development, :test do
 	gem 'pry-rails'
 	gem 'quiet_assets'
 	gem 'dotenv-rails'
+	gem 'mailcatcher'
 end
 
 group :doc do
