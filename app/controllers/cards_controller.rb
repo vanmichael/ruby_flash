@@ -17,7 +17,7 @@ class CardsController < ApplicationController
 			if @card.save
 				format.html { redirect_to group_path(card_params[:group_id]), notice: "Card Created!"}
 			else
-				format.html { render action: 'new', notice: "Card Not Created!" }
+				format.html { redirect_to :back, notice: "Card Not Created!" }
 			end
 		end
 	end
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
 	end
 
 	def edit
-
+		
 	end
 
 	def update

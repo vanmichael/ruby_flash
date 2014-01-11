@@ -16,4 +16,14 @@
 //= require cocoon
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ 
+
+	$(document).foundation();
+
+	$('body').on('mousemove', function(e) {
+
+		console.log(e.pageX);
+		console.log(e.pageY);
+		
+	});
+});
