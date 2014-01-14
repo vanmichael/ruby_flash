@@ -37,7 +37,11 @@ gem 'simple_form'
 gem 'cocoon'
 
 #Makes running your Rails app easier.
-#gem 'rails_12factor', group: :production
+group :production do
+gem 'rails_12factor'
+end
+
+gem 'coveralls', require: false
 
 group :test do
 	gem 'shoulda'
