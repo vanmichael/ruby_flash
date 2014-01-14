@@ -13,12 +13,6 @@ class TopicsController < ApplicationController
 	def create
 		@topic = Topic.new(topic_params)
 
-		respon_to do |format|
-			if @topic.save
-				
-			else
-
-			end
 	end
 
 	def show

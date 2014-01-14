@@ -54,6 +54,7 @@ group :development, :test do
 	gem 'quiet_assets'
 	gem 'dotenv-rails'
 	gem 'mailcatcher'
+	gem 'rails-erd'
 end
 
 group :doc do

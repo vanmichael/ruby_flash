@@ -27,9 +27,13 @@ feature 'member can update a card', %q{
 	scenario 'updating a card with valid information' do
 		group = FactoryGirl.create(:group, name: 'Capybara')
 		card = FactoryGirl.create(:card, group_id: group.id)
+		card.answer = "awesome"
 
-	    visit edit_card_path(card)
+		click_link "Edit"
+	    #visit edit_card_path(card)
 	    expect(page).to have_content('Edit')
+	    fill_in "Answer", with: card.answer
+	    
 	end
 
 
