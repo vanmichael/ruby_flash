@@ -17,6 +17,11 @@ Things you may want to cover:
 
 * How to run the test suite
 
+
+{<img src="https://coveralls.io/repos/vanmichael/ruby_flash/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/vanmichael/ruby_flash]
+
+
+
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
