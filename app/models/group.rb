@@ -12,4 +12,9 @@ class Group < ActiveRecord::Base
 			return false
 		end
 	end
+
+	def membership_from(user)
+		memberships.find_by(user_id: user.id)
+	end
+
 end

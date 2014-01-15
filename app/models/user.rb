@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, format: { with: VALID_EMAIL }
 
+  def member?(group)
+    Membership.where(user_id: self.id, group_id: group.id).exists?
+  end
+
 end

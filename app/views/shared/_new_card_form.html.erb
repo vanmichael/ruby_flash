@@ -1,9 +1,8 @@
 
-<%= simple_form_for @card, contoller: :cards, method: :create, action: :create  do |f| %>
+<%= simple_form_for [@group, @card], contoller: :cards, method: :create, action: :create  do |f| %>
 	<%= f.input :title, label: 'Title of card' %>
 	<%= f.input :question, label: 'Question' %>
 	<%= f.input :answer, label: 'Answer' %>
 	<%= f.input :topic_id, collection: 18..60, prompt: "Topic" %>
-	<%= f.input :group_id, collection: Group.all, prompt: "Group" %>
 	<%= f.button :submit %>
 <% end %>

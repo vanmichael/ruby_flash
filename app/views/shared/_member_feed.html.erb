@@ -1,0 +1,13 @@
+<%= button_to "Join", group_memberships_path(@group), method: :post, class: "button-tny" if !current_user.member?(@group) %>
+
+<%= button_to "Leave", group_membership_path(@group, @group.membership_from(current_user)), method: :delete, class: "button-tny" if current_user.member?(@group) %>
+
+<span>List users here</span>
+<% @group.users.each do |member|  %>
+  <table>
+    <tr>
+      <td>Profile Pic:</td>
+      <td><%= "#{member.first_name} #{member.last_name}" %></td>
+    </tr>
+  </table>
+<% end %>

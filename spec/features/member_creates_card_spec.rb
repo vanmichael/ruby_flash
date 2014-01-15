@@ -36,11 +36,10 @@ feature 'member creates new card', %q{
 	 	fill_in 'Title of card', with: card_title
 	 	fill_in 'Question', with: card_question
 	 	fill_in 'Answer', with: card_answer
-	 	select '20', from: 'Topic' 
-	 	select 'Capybara', from: 'Group'
-	 	
+	 	select '20', from: 'Topic'
+
 	 	click_button 'Create Card'
-	 	
+
 	 	expect(page).to have_content("Card Created!")
 	 	expect(page).to have_content("Capybara")
 	end

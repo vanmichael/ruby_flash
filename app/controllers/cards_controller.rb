@@ -11,11 +11,11 @@ class CardsController < ApplicationController
 	end
 
 	def create
-		@card = Card.new(card_params)
-
+		group = Group.find(params[:group_id])
+		@card = group.cards.build(card_params)
 		respond_to do |format|
 			if @card.save
-				format.html { redirect_to group_path(card_params[:group_id]), notice: "Card Created!"}
+				format.html { redirect_to group_path(group), notice: "Card Created!"}
 			else
 				format.html { redirect_to :back, notice: "Card Not Created!" }
 			end
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
 	end
 
 	def edit
-		
+
 	end
 
 	def update
@@ -45,7 +45,7 @@ class CardsController < ApplicationController
 	end
 
 	def card_params
-		params.require(:card).permit(:title, :question, :answer, :topic_id, :group_id)
+		params.require(:card).permit(:title, :question, :answer, :topic_id)
 	end
 
 end

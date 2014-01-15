@@ -41,14 +41,6 @@ class GroupsController < ApplicationController
 		end
 	end
 
-	#Custom Actions
-
-	def join
-		@membership = Membership.new(user_id: current_user[:id], group_id: params[:id])
-		@membership.save
-		redirect_to @group
-	end
-
 	private
 
 	def set_group
