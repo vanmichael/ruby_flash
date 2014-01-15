@@ -31,7 +31,7 @@ class GroupsController < ApplicationController
 	end
 
 	def update
-
+		@group = Group.find(params[:id])
 	end
 
 	def destroy
