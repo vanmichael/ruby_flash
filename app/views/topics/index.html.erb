@@ -1,0 +1,14 @@
+<div class="row">
+  <h1>Topics</h1>
+</div>
+
+<div class="row">
+  <% @topics.each do |topic| %>
+    <table>
+      <tr>
+        <th><%= link_to topic.name, topic_path(topic) %></th>
+        <th><%= topic.cards.count %></th>
+      </tr>
+    </table>
+  <% end %>
+</div>

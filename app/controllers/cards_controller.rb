@@ -17,7 +17,7 @@ class CardsController < ApplicationController
 			if @card.save
 				format.html { redirect_to group_path(group), notice: "Card Created!"}
 			else
-				format.html { redirect_to :back, notice: "Card Not Created!" }
+				format.html { redirect_to :back, alert: "Card Not Created!" }
 			end
 		end
 	end
@@ -45,7 +45,7 @@ class CardsController < ApplicationController
 	end
 
 	def card_params
-		params.require(:card).permit(:title, :question, :answer, :topic_id)
+		params.require(:card).permit(:title, :question, :answer, :topic_list)
 	end
 
 end

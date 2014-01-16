@@ -1,8 +1,8 @@
 <% @group.cards.each do |c| %>
   <div class="card">
-  	<p><%= c.title %></p>
-  	<p><%= c.question %></p>
-  	<p><%= c.answer %></p>
+  	<p>Title: <%= c.title %></p>
+  	<p>Question: <%= c.question %></p>
+  	<p>Answer: <%= c.answer %></p>
+    Topics: <%= raw c.topics.map(&:name).map { |t| link_to t, topic_path(t) }.join(', ') %>
   </div>
 <% end %>
-

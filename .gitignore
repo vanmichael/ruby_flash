@@ -20,3 +20,6 @@
 
 # Ignore .env
 /.env
+
+# Ignore carrierwave uploader
+/app/uploaders/icon_uploader.rb

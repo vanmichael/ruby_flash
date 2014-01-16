@@ -1,14 +1,13 @@
 class TopicsController < ApplicationController
 	before_filter :authenticate_user!
-	before_action :set_card, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@topics = Topic.new
+		@topics = Topic.all
 	end
 
 	def new
 		@topic = Topic.new
-	end 
+	end
 
 	def create
 		@topic = Topic.new(topic_params)
@@ -16,7 +15,8 @@ class TopicsController < ApplicationController
 	end
 
 	def show
-
+		@topic = Topic.find(params[:id])
+		@cards = @topic.cards
 	end
 
 	def edit

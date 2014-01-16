@@ -6,7 +6,7 @@
 <% @group.users.each do |member|  %>
   <table>
     <tr>
-      <td>Profile Pic:</td>
+      <td><%= image_tag member.icon, class: "user_icon" %></td>
       <td><%= "#{member.first_name} #{member.last_name}" %></td>
     </tr>
   </table>
