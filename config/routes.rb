@@ -1,5 +1,7 @@
 RubyFlash::Application.routes.draw do
   root "welcome#index"
+  get "/quiz", to: "welcome#quiz"
+
   devise_for :users
 
   resources :groups do

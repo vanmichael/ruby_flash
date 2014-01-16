@@ -1,0 +1,18 @@
+<h4 class="twelve columns text-center">Random Quiz</h4>
+
+<div class="twelve columns text-center">
+  <ul class="example-orbit" data-orbit>
+    <% @cards.each do |card| %>
+      <li>
+        <div class="card_slider">
+          <p>Question: <%= card.question %></p>
+          <p>Answer: <%= card.answer %></p>
+        </div>
+        <div class="orbit-caption">
+          <%= card.title %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
