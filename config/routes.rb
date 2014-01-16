@@ -3,6 +3,7 @@ RubyFlash::Application.routes.draw do
   devise_for :users
 
   resources :groups do
+    collection { post :import }
     resources :cards
     resources :memberships
   end

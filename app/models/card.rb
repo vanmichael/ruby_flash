@@ -1,3 +1,5 @@
+require 'csv'
+
 class Card < ActiveRecord::Base
 	belongs_to :group
 	belongs_to :topic
@@ -20,6 +22,25 @@ class Card < ActiveRecord::Base
   end
 
   class << self
+
+    def add_cards_from_file(file_path)
+      CSV.foreach(file_path, headers: true) do |row|
+        if row.headers == ["title", "question", "answer","group"]
+          title = row["title"]
+          question = row["question"]
+          answer = row["answer"]
+          group = Group.find_or_create_by(name: row["group"])
+          card = Card.find_or_initialize_by(title: title, question: question, answer: answer, group_id: group.id)
+          if card.save
+            true
+          else
+            false
+          end
+        else
+          false
+        end
+      end
+    end
 
     def tagged_with(name)
       Topic.find_by_name!(name).topics

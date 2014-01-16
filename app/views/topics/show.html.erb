@@ -1,14 +1,15 @@
 <div class="row">
-  <h1><%= @topic.name %></h1>
+  <h5 class="title"><%= @topic.name %></h5>
 </div>
 
 <div class="row">
   <% @cards.each do |c| %>
     <div class="card">
-    <p>Title: <%= c.title %></p>
-    <p>Question: <%= c.question %></p>
-    <p>Answer: <%= c.answer %></p>
-    Topics: <%= raw c.topics.map(&:name).map { |t| link_to t, topic_path(t) }.join(', ') %>
+      <p>Title: <%= c.title %></p>
+      <p>Question: <%= c.question %></p>
+      <p>Answer: <%= c.answer %></p>
+      <p><%= link_to "Edit Card", edit_card_path(c) %></p>
+      Topics: <%= raw c.topics.map(&:name).map { |t| link_to t, topic_path(t) }.join(', ') %>
     </div>
   <% end %>
 </div>

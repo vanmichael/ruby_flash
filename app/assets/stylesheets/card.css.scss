@@ -3,8 +3,17 @@
 .card {
 	border:solid 2px grey;
 	width:400px;
-	height:200px;
+	height:250px;
   padding:5px;
   margin-top:15px;
   margin-bottom:1%;
+}
+
+.csv_uploader {
+  border:solid 2px lightgrey;
+  margin-bottom:2px;
+}
+
+.title {
+  margin-left: 10px;
 }

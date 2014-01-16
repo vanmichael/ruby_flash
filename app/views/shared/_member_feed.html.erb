@@ -1,8 +1,10 @@
-<%= button_to "Join", group_memberships_path(@group), method: :post, class: "button-tny" if !current_user.member?(@group) %>
+<div class="row">
+  <h5>List users here:</h5>
+    <%= button_to "Join", group_memberships_path(@group), method: :post, class: "button [tiny radius round]" if !current_user.member?(@group) %>
 
-<%= button_to "Leave", group_membership_path(@group, @group.membership_from(current_user)), method: :delete, class: "button-tny" if current_user.member?(@group) %>
+    <%= button_to "Leave", group_membership_path(@group, @group.membership_from(current_user)), method: :delete, class: "button [tiny radius round]" if current_user.member?(@group) %>
+</div>
 
-<span>List users here</span>
 <% @group.users.each do |member|  %>
   <table>
     <tr>

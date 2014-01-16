@@ -41,6 +41,19 @@ class GroupsController < ApplicationController
 		end
 	end
 
+	def import
+		file = params[:file].tempfile
+		if params[:file].original_filename.split('.')[1] == 'csv'
+			if Card.add_cards_from_file(file)
+				redirect_to :back, notice: "Cards Added From CSV Successfully!"
+			else
+				redirect_to :back, notice: "Cards Not Added From CSV!"
+			end
+		else
+			redirect_to :back, notice: "Cards Not Added: must be a .csv file type!"
+		end
+	end
+
 	private
 
 	def set_group

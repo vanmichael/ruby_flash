@@ -1,16 +1,15 @@
 <div class="row">
-	<h3><%= @group.name %></h3>
+	<h5 class="title"><%= @group.name %>:</h5>
 </div>
 
-<div class="row">
-
-	<div class="large-6 columns">
-		<%= render 'shared/new_card_form' %>
-		<%= render 'shared/member_feed' %>
-	</div>
-
-	<div class="large-6 columns">
-		<%= render 'shared/card_feed' %>
-	</div>
-
+<div class="large-6 columns">
+  <%= render 'shared/new_card_form' %>
+  <%= render 'shared/csv_uploader' %>
+  <%= render 'shared/member_feed' %>
 </div>
+
+<% if @group.cards.exists? %>
+  <div class="large-6 columns">
+  	<%= render 'shared/card_feed' %>
+  </div>
+<% end %>

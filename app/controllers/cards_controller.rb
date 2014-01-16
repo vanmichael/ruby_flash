@@ -31,7 +31,12 @@ class CardsController < ApplicationController
 	end
 
 	def update
-
+		group = Group.find(@card.group_id)
+		if @card.update_attributes(card_params)
+			redirect_to group_path(group), notice: "Card Updated!"
+		else
+			redirect_to :back, alert: "Card Not Updated!"
+		end
 	end
 
 	def destroy
