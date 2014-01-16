@@ -1,21 +1,16 @@
 /* Styling for Card Views */
 
-.card {
-	border:solid 2px grey;
-	width:400px;
-	height:250px;
-  padding:5px;
-  margin-top:15px;
-  margin-bottom:1%;
-}
-
 .csv_uploader {
   border:solid 2px lightgrey;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
   margin-bottom:2px;
+  padding:10px;
 }
 
 .title {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .card_slider {
@@ -26,7 +21,7 @@
   padding:5px;
   margin-top:25px;
   margin-bottom:45px;
-  margin-left:30%;
+  margin-left:34%;
   background-color: #6BBA70;
   animation: myfirst 5s;
   animation-iteration-count: infinite;
@@ -46,4 +41,32 @@
 {
   from {background: #6BBA70;}
   to {background: #D15600;}
+}
+
+// Card Flips
+
+.card {
+    height: 250px;
+    width: 400px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 1.5s;
+    margin-bottom:1%;
+}
+.rotated{
+    -webkit-transform: rotateY(180deg);
+}
+.side{
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -webkit-box-shadow: 0 2px 5px #666;
+}
+.front{
+    height: 250px;
+    width: 400px;
+}
+.back{
+    height: 250px;
+    width: 400px;
+    padding: 10px;
+    -webkit-transform: rotateY(180deg);
 }

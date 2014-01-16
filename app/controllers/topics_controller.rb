@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
 	end
 
 	def show
-		@topic = Topic.find(params[:id])
+		@topic = Topic.find_by_name(params[:id])
 		@cards = @topic.cards
 	end
 

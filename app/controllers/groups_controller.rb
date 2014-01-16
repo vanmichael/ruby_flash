@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 	before_filter :authenticate_user!
-	before_action :set_group, only: [:show, :edit, :update, :destroy, :join]
+	before_action :set_group, only: [:show, :edit, :update, :destroy, :import]
 
 	def index
 		@groups = Group.all
@@ -44,7 +44,7 @@ class GroupsController < ApplicationController
 	def import
 		file = params[:file].tempfile
 		if params[:file].original_filename.split('.')[1] == 'csv'
-			if Card.add_cards_from_file(file)
+			if Card.add_cards_from_file(@group, file)
 				redirect_to :back, notice: "Cards Added From CSV Successfully!"
 			else
 				redirect_to :back, notice: "Cards Not Added From CSV!"
