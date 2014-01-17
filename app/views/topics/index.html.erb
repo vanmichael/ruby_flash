@@ -3,12 +3,22 @@
 </div>
 
 <div class="row">
-  <% @topics.each do |topic| %>
-    <table>
-      <tr>
-        <th><%= link_to topic.name, topic_path(topic) %></th>
-        <th><%= topic.cards.count %></th>
-      </tr>
-    </table>
-  <% end %>
+  <div class="large-12 large-centered columns">
+    <div id="accordion">
+      <% @topics.each do |topic| %>
+        <h3 class="group_title"><%= topic.name %></h3>
+        <div class="group-accordion">
+          <table class="group-counter">
+            <tr>
+              <th>
+                Cards: <%= topic.cards.count %>
+              </th>
+              <th>
+                <%= link_to topic.name, topic_path(topic) %>
+              </th>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    </div>
 </div>

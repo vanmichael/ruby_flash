@@ -36,7 +36,6 @@ feature 'member creates new card', %q{
 	 	fill_in 'Title of card', with: card_title
 	 	fill_in 'Question', with: card_question
 	 	fill_in 'Answer', with: card_answer
-	 	select '20', from: 'Topic'
 
 	 	click_button 'Create Card'
 

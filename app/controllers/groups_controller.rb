@@ -12,14 +12,11 @@ class GroupsController < ApplicationController
 
 	def create
 		@group = Group.new(group_params)
-
-		respond_to do |format|
 			if @group.add
-				format.html { redirect_to new_group_path, notice: 'Group created!' }
+				redirect_to new_group_path, notice: 'Group created!'
 			else
-				format.html { render action: 'new', notice: 'Group Not Created!' }
+				render action: 'new', notice: 'Group Not Created!'
 			end
-		end
 	end
 
 	def show

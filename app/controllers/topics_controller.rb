@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
 	end
 
 	def show
-		@topic = Topic.find_by_name(params[:id])
+		@topic = Topic.find_by_name(params[:id]) || Topic.find(params[:id])
 		@cards = @topic.cards
 	end
 
@@ -30,4 +30,5 @@ class TopicsController < ApplicationController
 	def destroy
 
 	end
+
 end
