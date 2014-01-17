@@ -1,12 +1,12 @@
 <div class="row">
-  <h5 class="title">Topics</h5>
-</div>
-
-<div class="row">
   <div class="large-12 large-centered columns">
     <div id="accordion">
+      <h3 class="top_tab_title">Topics</h3>
+      <div class="group-accordion">
+        <h5 class="text-center">There are <%= Topic.all.count %> topics.</h5>
+      </div>
       <% @topics.each do |topic| %>
-        <h3 class="group_title"><%= topic.name %></h3>
+        <h3 class="tab_title"><%= topic.name %></h3>
         <div class="group-accordion">
           <table class="group-counter">
             <tr>

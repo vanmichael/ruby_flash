@@ -1,6 +1,6 @@
 <div class="large-7 large-centered columns">
 	<div id="accordion">
-		<h3 class="add_group_title">Add Group</h3>
+		<h3 class="top_tab_title">Add Group</h3>
 		<div class="group-accordion">
 			<%= simple_form_for @group do |f| %>
 			<%= f.input :name, label: 'Group Name' %>
@@ -8,7 +8,7 @@
 			<% end %>
 	  </div>
   	<% Group.all.each do |group| %>
-	  	<h3 class="group_title"><%= group.name %></h3>
+	  	<h3 class="tab_title"><%= group.name %></h3>
 	  	<div class="group-accordion">
 		    <table class="group-counter">
 		    	<tr>
