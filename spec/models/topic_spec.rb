@@ -5,7 +5,7 @@ describe Topic do
   it { should have_valid(:name).when('enumerables') }
   it { should_not have_valid(:name).when(nil,'') }
 
-  it "should have a unique email" do
+  it "should have a unique topic" do
   	topic_one = FactoryGirl.build(:topic)
   	topic_two = FactoryGirl.build(:topic)
 

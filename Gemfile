@@ -33,8 +33,25 @@ gem 'devise'
 # Makes rails forms simple
 gem 'simple_form'
 
+# Makes image upload easier
+gem 'carrierwave'
+
+# Used for image display
+gem 'mini_magick'
+
 # Makes it easier to handle nested forms
 gem 'cocoon'
+
+# Used for Amazon S3 Support
+gem "fog", "~> 1.3.1"
+
+group :production do
+	#Neccesary for Heroku Deployment
+	gem 'rails_12factor'
+end
+
+# Used for test coverage badges
+gem 'coveralls', require: false
 
 group :test do
 	gem 'shoulda'
@@ -50,6 +67,8 @@ group :development, :test do
 	gem 'pry-rails'
 	gem 'quiet_assets'
 	gem 'dotenv-rails'
+	gem 'mailcatcher'
+	gem 'rails-erd'
 end
 
 group :doc do

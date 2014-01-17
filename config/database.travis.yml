@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: ruby_flash_test
+  username: postgres

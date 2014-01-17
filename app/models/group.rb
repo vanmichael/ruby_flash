@@ -6,10 +6,15 @@ class Group < ActiveRecord::Base
 
 	def add
 		if save
-			NewGroupConfirmation.notification.deliver
+			NewGroupConfirmation.notification(self).deliver
 			return true
 		else
 			return false
 		end
 	end
+
+	def membership_from(user)
+		memberships.find_by(user_id: user.id)
+	end
+
 end

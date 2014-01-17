@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+	before_filter :authenticate_user!
 	before_action :set_card, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -10,13 +11,13 @@ class CardsController < ApplicationController
 	end
 
 	def create
-		@card = Card.new(card_params)
-
+		group = Group.find(params[:group_id])
+		@card = group.cards.build(card_params)
 		respond_to do |format|
 			if @card.save
-				format.html { redirect_to group_path(card_params[:group_id]), notice: "Card Created!"}
+				format.html { redirect_to group_path(group), notice: "Card Created!"}
 			else
-				format.html { render action: 'new', notice: "Card Not Created!" }
+				format.html { redirect_to :back, alert: "Card Not Created!" }
 			end
 		end
 	end
@@ -30,7 +31,12 @@ class CardsController < ApplicationController
 	end
 
 	def update
-
+		group = Group.find(@card.group_id)
+		if @card.update_attributes(card_params)
+			redirect_to group_path(group), notice: "Card Updated!"
+		else
+			redirect_to :back, alert: "Card Not Updated!"
+		end
 	end
 
 	def destroy
@@ -44,7 +50,7 @@ class CardsController < ApplicationController
 	end
 
 	def card_params
-		params.require(:card).permit(:title, :question, :answer, :topic_id, :group_id)
+		params.require(:card).permit(:title, :question, :answer, :topic_list)
 	end
 
 end

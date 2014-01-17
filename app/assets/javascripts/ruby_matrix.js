@@ -14,7 +14,7 @@ function step() {
     //this explains both the initial flash from white to black (by default the canvas is white and progressively becomes black) as well as the fading of characters.
     canvas.getContext('2d').fillStyle = 'rgba(0,0,0,0.05)';
     canvas.getContext('2d').fillRect(0, 0, canvas.width, canvas.height);
-    
+
     //Set color Here:
       var colorcodes = new Array();
       colorcodes[0] = "#F7EB63";
@@ -27,7 +27,7 @@ function step() {
     canvas.getContext('2d').fillStyle = colorcodes[randomColor];
     //for each column
     columns.map(function (value, index) {
-         
+
       var rubymethods = new Array();
       rubymethods[0] = "b.uniq { |s| s.first }";
       rubymethods[1] = "a.sort! {|x,y| y <=> x }";

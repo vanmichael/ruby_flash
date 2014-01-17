@@ -1,5 +1,31 @@
 <div class="row">
-	<h1>Welcome To Ruby Flash <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" if user_signed_in? %></h1> 
+   <div class="large-6 large-centered columns">
+      <div class="homepage">
+        <h1 class="text-center">Welcome To Ruby Flash <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" if user_signed_in? %></h1
+      <div>
+   </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns">
+    <div class="box">
+      <h5 class="text-center">Cards:</h5>
+      <h2 class="text-center"><%= Card.all.count %></h2>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <div class="box">
+      <h5 class="text-center">Users:</h5>
+      <h2 class="text-center"><%= User.all.count %></h2>
+    </div>
+  </div>
+  <div class="large-3 columns">
+   <div class="box">
+      <h5 class="text-center">Topics:</h5>
+      <h2 class="text-center"><%= Topic.all.count %></h2>
+    </div>
+  </div>
 </div>
 
 <canvas id="canvas">
+</canvas>

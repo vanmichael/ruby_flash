@@ -1,16 +1,18 @@
 RubyFlash::Application.routes.draw do
   root "welcome#index"
+  get "/quiz", to: "welcome#quiz"
+
   devise_for :users
 
   resources :groups do
-    member do
-      post 'join'
-    end
+    member { post :import }
+    resources :cards
+    resources :memberships
   end
 
   resources :cards
   resources :topics
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

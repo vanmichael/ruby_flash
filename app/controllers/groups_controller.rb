@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
-	before_action :set_group, only: [:show, :edit, :update, :destroy, :join]
+	before_filter :authenticate_user!
+	before_action :set_group, only: [:show, :edit, :update, :destroy, :import]
 
 	def index
 		@groups = Group.all
@@ -11,14 +12,11 @@ class GroupsController < ApplicationController
 
 	def create
 		@group = Group.new(group_params)
-
-		respond_to do |format|
 			if @group.add
-				format.html { redirect_to new_group_path, notice: 'Group created!' }
+				redirect_to new_group_path, notice: 'Group created!'
 			else
-				format.html { render action: 'new', notice: 'Group Not Created!' }
+				render action: 'new', notice: 'Group Not Created!'
 			end
-		end
 	end
 
 	def show
@@ -30,7 +28,7 @@ class GroupsController < ApplicationController
 	end
 
 	def update
-
+		@group = Group.find(params[:id])
 	end
 
 	def destroy
@@ -40,12 +38,17 @@ class GroupsController < ApplicationController
 		end
 	end
 
-	#Custom Actions
-
-	def join
-		@membership = Membership.new(user_id: current_user[:id], group_id: params[:id])
-		@membership.save
-		redirect_to @group
+	def import
+		file = params[:file].tempfile
+		if params[:file].original_filename.split('.')[1] == 'csv'
+			if Card.add_cards_from_file(@group, file)
+				redirect_to :back, notice: "Cards Added From CSV Successfully!"
+			else
+				redirect_to :back, notice: "Cards Not Added From CSV!"
+			end
+		else
+			redirect_to :back, notice: "Cards Not Added: must be a .csv file type!"
+		end
 	end
 
 	private
