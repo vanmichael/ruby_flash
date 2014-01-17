@@ -1,15 +1,16 @@
-<div class="row">
-  <h5 class="title"><%= @topic.name %></h5>
-</div>
-
-<div class="row">
-  <% @cards.each do |c| %>
-    <div class="card">
-      <p>Title: <%= c.title %></p>
-      <p>Question: <%= c.question %></p>
-      <p>Answer: <%= c.answer %></p>
-      <p><%= link_to "Edit Card", edit_card_path(c) %></p>
-      Topics: <%= raw c.topics.map(&:name).map { |t| link_to t, topic_path(t) }.join(', ') %>
+<div class="large-6 large-centered columns">
+  <h5 class="text-center"><%= @topic.name %></h5>
+  <% @topic.cards.each do |c| %>
+    <div id="card" class="card">
+      <div class="front side">
+          <p>Title: <%= c.title %></p>
+          <p>Question: <%= c.question %></p>
+      </div>
+      <div class="back side">
+          <p>Answer: <%= c.answer %></p>
+          <p><%= link_to "Edit Card", edit_card_path(c) %></p>
+          Topics: <%= raw c.topics.map(&:name).map { |t| link_to t, topic_path(t) }.join(', ') %>
+      </div>
     </div>
   <% end %>
 </div>
