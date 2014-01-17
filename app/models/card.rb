@@ -3,7 +3,7 @@ require 'csv'
 class Card < ActiveRecord::Base
 	belongs_to :group
 	belongs_to :topic
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :topics, through: :taggings
 
 	validates_presence_of :title

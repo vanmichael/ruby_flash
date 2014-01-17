@@ -18,17 +18,4 @@ class TopicsController < ApplicationController
 		@topic = Topic.find_by_name(params[:id]) || Topic.find(params[:id])
 		@cards = @topic.cards
 	end
-
-	def edit
-
-	end
-
-	def update
-
-	end
-
-	def destroy
-
-	end
-
 end
