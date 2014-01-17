@@ -22,3 +22,15 @@ $(function(){
 
   $( "#accordion" ).accordion();
 });
+
+$(function() {
+  $("#accordion").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#topics_search input").keyup(function() {
+    $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
+    return false;
+  });
+});
+

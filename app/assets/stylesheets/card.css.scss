@@ -68,5 +68,6 @@
     height: 250px;
     width: 100%;
     padding: 5%;
+    -moz-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg) translateZ(5px);
 }

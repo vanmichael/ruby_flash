@@ -1,13 +1,13 @@
 <% @group.cards.each do |c| %>
   <div id="card" class="card">
     <div class="front side">
-        <p>Title: <%= c.title %></p>
-        <p>Question: <%= c.question %></p>
+        <h5>Title: <%= c.title %></h5>
+        <h4>Question: <%= c.question %></h4>
     </div>
     <div class="back side">
-        <p>Answer: <%= c.answer %></p>
-        <p><%= link_to "Edit Card", edit_card_path(c) %></p>
-        <p>Topics: <%= raw c.topics.map(&:name).map { |t| link_to t, topic_path(t) }.join(', ') %></p>
+        <h4>Answer: <%= c.answer %></h4>
+        <h5>Topics: <%= raw c.topics.map(&:name).map { |t| link_to t, topic_path(t) }.join(', ') %></h5>
+        <h5><%= link_to "Edit Card", edit_card_path(c) %></h5>
     </div>
   </div>
 <% end %>

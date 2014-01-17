@@ -1,6 +1,5 @@
 $(document).ready(function(){
-  $(".card").click(function( event ){
-     event.preventDefault();
+  $(".card").click(function(){
      $(this).toggleClass('rotated');
   });
 });
