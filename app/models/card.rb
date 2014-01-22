@@ -50,5 +50,4 @@ class Card < ActiveRecord::Base
     end
 
   end
-
 end

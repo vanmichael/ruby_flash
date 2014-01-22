@@ -15,5 +15,5 @@ describe Topic do
 
   #Associations
   it { should have_many :cards }
-  
+  it { should have_many :taggings }
 end

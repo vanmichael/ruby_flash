@@ -14,7 +14,8 @@ feature 'user creates new group', %q{
 	# * The user should be able to find a link to create a group deck.
 	# * The user should be able to invite other users to the group.
 	# * The user's should be able to set a topic name for the flashcard deck.
-	let(:user) {FactoryGirl.create(:user)}
+
+	let(:user) { FactoryGirl.create(:user) }
 
 	before(:each) do
 		sign_in_as(user)
@@ -26,7 +27,7 @@ feature 'user creates new group', %q{
 		group_name = 'Ruby Enumerables'
 
 		visit root_path
-		
+
 		click_link 'Groups'
 		fill_in 'Group Name', with: group_name
 		click_button 'Create Group'
@@ -39,5 +40,15 @@ feature 'user creates new group', %q{
 		expect(last_email).to deliver_to(email)
 		expect(last_email).to have_body_text(/Group Name: #{group_name}/)
 	end
+
+	scenario 'required information is not supplied' do
+
+		visit root_path
+		click_link 'Groups'
+		fill_in 'Group Name', with: nil
+		click_button 'Create Group'
+		expect(page).to have_content("can't be blank")
+	end
+
 end
 

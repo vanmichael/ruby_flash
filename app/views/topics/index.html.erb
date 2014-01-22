@@ -2,7 +2,7 @@
   <div class="large-12 large-centered columns">
     <div id="accordion">
       <h3 class="top_tab_title">Topics</h3>
-      <div class="group-accordion">
+      <div class="group-accordion hide_on_load">
         <%= form_tag topics_path, method: 'get', id: "topics_search" do %>
         <%= hidden_field_tag :direction, params[:direction] %>
         <%= hidden_field_tag :sort, params[:sort] %>
@@ -14,7 +14,7 @@
       </div>
       <% @topics.each do |topic| %>
         <h3 class="tab_title"><%= topic.name %></h3>
-        <div class="group-accordion">
+        <div class="group-accordion hide_on_load">
           <table class="group-counter">
             <tr>
               <th>

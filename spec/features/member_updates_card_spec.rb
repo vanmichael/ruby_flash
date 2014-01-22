@@ -24,17 +24,28 @@ feature 'member can update a card', %q{
 		sign_in_as(user)
 	end
 
-	# scenario 'updating a card with valid information' do
-	# 	group = FactoryGirl.create(:group, name: 'Capybara')
-	# 	card = FactoryGirl.create(:card, group_id: group.id)
-	# 	card.answer = "awesome"
+	scenario 'updating a card with valid information' do
+		group = FactoryGirl.create(:group, name: 'Capybara')
+		card = FactoryGirl.create(:card, group_id: group.id)
+		card.answer = "awesome"
 
-	# 	click_link "Edit"
-	#     #visit edit_card_path(card)
-	#     expect(page).to have_content('Edit')
-	#     fill_in "Answer", with: card.answer
+	  visit edit_card_path(card)
+    expect(page).to have_content('Edit This Card')
+    fill_in "Answer", with: card.answer
+    click_button 'Update Card'
+    expect(page).to have_content('Card Updated!')
+	end
 
-	# end
+	scenario 'updating a card with invalid information' do
+		group = FactoryGirl.create(:group, name: 'Capybara')
+		card = FactoryGirl.create(:card, group_id: group.id)
+		card.answer = nil
 
+		visit edit_card_path(card)
+		expect(page).to have_content('Edit This Card')
+		fill_in "Answer", with: card.answer
+		click_button 'Update Card'
+		expect(page).to have_content('Card Not Updated!')
+	end
 
 end

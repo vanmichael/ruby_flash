@@ -7,6 +7,5 @@ FactoryGirl.define do
     answer "MyText"
     group_id 1
     updated_by 1
-    topic_id 20
   end
 end

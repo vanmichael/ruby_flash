@@ -1,0 +1,29 @@
+<div class="large-7 large-centered columns">
+  <div id="accordion">
+    <h3 class="top_tab_title">Add Group</h3>
+    <div class="group-accordion hide_on_load">
+      <%= simple_form_for @my_group do |f| %>
+      <%= f.input :name, label: 'Group Name' %>
+      <%= f.button :submit, label: 'Create Group' %>
+      <% end %>
+    </div>
+    <% @my_groups.each do |group| %>
+      <h3 class="tab_title"><%= group.name %></h3>
+      <div class="group-accordion hide_on_load">
+        <table class="group-counter">
+          <tr>
+            <th>
+              Cards: <%= group.cards.count %>
+            </th>
+            <th>
+              Members: <%= group.users.count %>
+            </th>
+            <th>
+              <%= link_to 'Study', group %>
+            </th>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>
