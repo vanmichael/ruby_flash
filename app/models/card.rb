@@ -1,8 +1,8 @@
 require 'csv'
 
 class Card < ActiveRecord::Base
-	belongs_to :group
-	belongs_to :topic
+	belongs_to :group, inverse_of: :card
+	belongs_to :topic, inverse_of: :card
   has_many :taggings, dependent: :destroy
   has_many :topics, through: :taggings
 

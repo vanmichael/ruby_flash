@@ -3,7 +3,6 @@ class TopicsController < ApplicationController
 	helper_method :sort_column, :sort_direction
 
 	def index
-		#@topics = Topic.all
 		@topics = Topic.search(params[:search]).order(sort_column + " " + sort_direction)
 	end
 

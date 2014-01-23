@@ -2,7 +2,7 @@
   <div id="accordion">
     <h3 class="top_tab_title">Add Group</h3>
     <div class="group-accordion hide_on_load">
-      <%= simple_form_for @my_group do |f| %>
+      <%= simple_form_for @my_group, controller: :my_groups, action: :create, method: :action do |f| %>
       <%= f.input :name, label: 'Group Name' %>
       <%= f.button :submit, label: 'Create Group' %>
       <% end %>

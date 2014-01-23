@@ -23,23 +23,21 @@ feature 'user becomes a member of a group', %q{
   end
 
   scenario 'an authenticated user can join a group' do
+    visit root_path
+    click_link 'Groups'
 
+    visit group_path(group)
+    expect(page).to have_content(group.name)
+    expect(page).to have_button('Join')
+  end
+
+  scenario 'an existing member can not join a group' do
     visit root_path
     click_link 'Groups'
 
     visit group_path(group)
     expect(page).to have_content(group.name)
     click_button 'Join'
-  end
-
-  scenario 'an existing member can not join a group' do
-    membership.user_id = user.id
-    membership.group_id = group.id
-    membership.save
-
-    visit root_path
-    click_link 'Groups'
-    visit group_path(group)
     expect(page).to have_button('Leave')
   end
 

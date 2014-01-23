@@ -1,4 +1,5 @@
 class MyGroupsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @my_groups = current_user.groups
@@ -7,16 +8,6 @@ class MyGroupsController < ApplicationController
   def new
     @my_groups = current_user.groups
     @my_group = Group.new
-  end
-
-  def create
-    @my_group = Group.new(group_params)
-  end
-
-  private
-
-  def my_group_params
-
   end
 
 end
