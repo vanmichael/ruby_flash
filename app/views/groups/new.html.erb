@@ -7,7 +7,7 @@
 			<%= f.button :submit, label: 'Create Group' %>
 			<% end %>
 	  </div>
-	  <h3 class="tab_title">Search Groups</h3>
+	  <h3 class="top_tab_title">Search Groups</h3>
 	  <div class="group-accordion hide_on_load">
         <%= form_tag groups_path, method: 'get', id: "groups_search" do %>
         <%= hidden_field_tag :direction, params[:direction] %>
