@@ -38,8 +38,8 @@ function step() {
       rubymethods[2] = "a.sample";
       rubymethods[3] = "a.shuffle";
       rubymethods[4] = "a.transpose";
-      rubymethods[5] = "Sam";
-      rubymethods[6] = "Sam is mean";
+      rubymethods[5] = "a.map";
+      rubymethods[6] = "a.permutate";
 
       var randomIndex = Math.floor(Math.random()*rubymethods.length);
 
