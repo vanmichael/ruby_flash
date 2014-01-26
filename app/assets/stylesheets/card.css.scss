@@ -9,10 +9,6 @@
   padding:10px;
 }
 
-.title {
-  margin-left: 15px;
-}
-
 .card_slider {
   border:solid 2px grey;
   border-radius:5px;
@@ -42,6 +38,22 @@
   to {background: #D15600;}
 }
 
+
+// Card Interface
+
+.card_title {
+  margin-top:-2%;
+}
+
+.card_question {
+  margin-top:5%;
+}
+
+.card_answer {
+  margin-top:2%;
+  font-size:18px;
+}
+
 // Card Flips
 
 .card {
@@ -63,6 +75,7 @@
     height: 250px;
     width: 100%;
     padding: 5%;
+    background-image: image-url("card_background.png");
 }
 .back {
     height: 250px;
@@ -70,4 +83,5 @@
     padding: 5%;
     -moz-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg) translateZ(5px);
+    background-image: image-url("card_background_back.png");
 }
