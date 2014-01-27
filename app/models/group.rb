@@ -7,7 +7,7 @@ class Group < ActiveRecord::Base
 
 	def add
 		if self.save
-			NewGroupConfirmation.notification(self).deliver
+			#NewGroupConfirmation.notification(self).deliver
 			return true
 		else
 			return false
