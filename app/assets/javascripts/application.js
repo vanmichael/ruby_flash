@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-// inside app/assets/javascripts/application.js
 //= require jquery
 //= require jquery_ujs
 //= require foundation
