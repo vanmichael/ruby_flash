@@ -51,6 +51,7 @@ gem "fog", "~> 1.3.1"
 group :production do
 	#Neccesary for Heroku Deployment
 	gem 'rails_12factor'
+	gem 'newrelic_rpm'
 end
 
 # Used for test coverage badges
