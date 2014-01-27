@@ -17,6 +17,11 @@ Things you may want to cover:
 
 * How to run the test suite
 
+
+
+
+
+
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
@@ -26,3 +31,5 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+{<img src="https://coveralls.io/repos/vanmichael/ruby_flash/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/vanmichael/ruby_flash]
