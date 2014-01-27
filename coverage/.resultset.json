@@ -750,19 +750,6 @@
         2,
         null
       ],
-      "/Users/vannguyen/Dropbox/launchacademy/breakable_toy/ruby_flash/app/controllers/welcome_controller.rb": [
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null
-      ],
       "/Users/vannguyen/Dropbox/launchacademy/breakable_toy/ruby_flash/app/controllers/application_controller.rb": [
         1,
         1,
@@ -774,6 +761,19 @@
         null,
         1,
         50,
+        null,
+        null,
+        null
+      ],
+      "/Users/vannguyen/Dropbox/launchacademy/breakable_toy/ruby_flash/app/controllers/welcome_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         null
@@ -916,6 +916,21 @@
         null,
         null
       ],
+      "/Users/vannguyen/Dropbox/launchacademy/breakable_toy/ruby_flash/app/controllers/my_groups_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/vannguyen/Dropbox/launchacademy/breakable_toy/ruby_flash/app/controllers/memberships_controller.rb": [
         1,
         null,
@@ -968,23 +983,8 @@
         null,
         null,
         null
-      ],
-      "/Users/vannguyen/Dropbox/launchacademy/breakable_toy/ruby_flash/app/controllers/my_groups_controller.rb": [
-        1,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
       ]
     },
-    "timestamp": 1390785973
+    "timestamp": 1390786039
   }
 }
