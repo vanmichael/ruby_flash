@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
 	end
 
   def quiz
-    @cards = Card.all
+    @topics = Topic.all
   end
 
 end

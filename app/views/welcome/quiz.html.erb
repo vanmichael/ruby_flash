@@ -1,21 +1,31 @@
 <div class="row">
   <div class="tweleve colums text-center">
-  <h4>Random Quiz</h4>
-</div>
+    <h4>Quiz Mobile</h4>
+  </div>
 
-<div class="twelve columns text-center">
-  <ul class="example-orbit" data-orbit>
-    <% @cards.each do |card| %>
+  <div class="large-6 large-centered columns">
+    <% if @topics.count > 0 %>
+    <% @topics.each do |topic| %>
+    <ul class="example-orbit" data-orbit>
+      <% topic.cards.each do |card| %>
       <li>
         <div class="card_slider">
-          <p>Question: <%= card.question %></p>
-          <p>Answer: <%= card.answer %></p>
-        </div>
-        <div class="orbit-caption">
-          <%= card.title %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
+          <h5><%= topic.name %></h5>
+          <div id="card" class="card">
+            <div class="front side">
+              <h5 class="text-center">Title: <%= card.title %></h5>
+              <h3 class="text-center">Question: <%= card.question %></3>
+              </div>
+              <div class="back side">
+                <h3 class="text-center">Answer: <%= card.answer %></h3>
+                <h5 class="text-center">Topics: <%= raw card.topics.map(&:name).map { |t| link_to t, topic_path(t) }.join(', ') %></h5>
+              </div>
+            </div>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+      <% end %>
+      <% end %>
+    </div>
 

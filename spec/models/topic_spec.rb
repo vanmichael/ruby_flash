@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Topic do
-  #Validations
+
   it { should have_valid(:name).when('enumerables') }
   it { should_not have_valid(:name).when(nil,'') }
 
@@ -13,7 +13,7 @@ describe Topic do
   	expect(topic_two.save).to eq false
   end
 
-  #Associations
   it { should have_many :cards }
-  
+  it { should have_many :taggings }
+
 end

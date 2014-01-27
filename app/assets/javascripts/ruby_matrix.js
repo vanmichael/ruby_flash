@@ -2,6 +2,10 @@
 canvas.height = window.screen.height;
 canvas.width = window.screen.width;
 
+window.onresize = function() {
+    document.getElementById('canvas').style.height = '100%';
+};
+
 //one entry in the array per column of text
 //each value represent the current y position of the column. (in canvas 0 is at the top and positive y values go downward)
 var columns = [];
@@ -34,8 +38,8 @@ function step() {
       rubymethods[2] = "a.sample";
       rubymethods[3] = "a.shuffle";
       rubymethods[4] = "a.transpose";
-      rubymethods[5] = "Sam";
-      rubymethods[6] = "Sam is mean";
+      rubymethods[5] = "a.map";
+      rubymethods[6] = "a.permutate";
 
       var randomIndex = Math.floor(Math.random()*rubymethods.length);
 

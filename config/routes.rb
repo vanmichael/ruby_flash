@@ -10,6 +10,12 @@ RubyFlash::Application.routes.draw do
     resources :memberships
   end
 
+  resources :my_groups do
+    member { post :import }
+    resources :cards
+    resources :memberships
+  end
+
   resources :cards
   resources :topics
 

@@ -13,17 +13,11 @@ class CardsController < ApplicationController
 	def create
 		group = Group.find(params[:group_id])
 		@card = group.cards.build(card_params)
-		respond_to do |format|
-			if @card.save
-				format.html { redirect_to group_path(group), notice: "Card Created!"}
-			else
-				format.html { redirect_to :back, alert: "Card Not Created!" }
-			end
+		if @card.save
+			redirect_to group_path(group), notice: "Card Created!"
+		else
+			redirect_to :back, alert: "Card Not Created!"
 		end
-	end
-
-	def show
-
 	end
 
 	def edit

@@ -18,3 +18,35 @@
   font-size: 1em;
   color: white;
 }
+
+.top_tab_title {
+  color: #B02B2C;
+  display: none;
+}
+
+.tab_title {
+  color:#2ba6cb;
+  border-bottom:solid 2px grey;
+  display: none;
+}
+
+.hide_on_load {
+  display: none;
+}
+
+.group-counter {
+  margin-left:5%;
+  border:solid 2px grey;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+
+.user_icon {
+  border: solid 1px grey;
+}
+
+.group_title {
+  margin-bottom:24px;
+}
+

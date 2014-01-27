@@ -1,7 +1,13 @@
 <div class="row">
-  <h5 class="title">Edit</h5>
+  <h5 class="title">Edit This Card</h5>
 </div>
 
 <div class="large-6 columns">
-  <%= render 'shared/new_card_form' %>
+  <%= simple_form_for @card do |f| %>
+    <%= f.input :title, label: 'Title of card' %>
+    <%= f.input :question, label: 'Question' %>
+    <%= f.input :answer, label: 'Answer' %>
+    <%= f.input :topic_list, label: 'TagaTopic' %>
+    <%= f.button :submit, class: "button" %>
+  <% end %>
 </div>

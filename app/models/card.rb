@@ -1,9 +1,9 @@
 require 'csv'
 
 class Card < ActiveRecord::Base
-	belongs_to :group
-	belongs_to :topic
-  has_many :taggings
+	belongs_to :group, inverse_of: :card
+	belongs_to :topic, inverse_of: :card
+  has_many :taggings, dependent: :destroy
   has_many :topics, through: :taggings
 
 	validates_presence_of :title
@@ -24,21 +24,20 @@ class Card < ActiveRecord::Base
   class << self
 
     def add_cards_from_file(group, file_path)
-      CSV.foreach(file_path, headers: true) do |row|
-        if row.headers == ["title", "question", "answer"]
-          title = row["title"]
-          question = row["question"]
-          answer = row["answer"]
-          card = Card.find_or_initialize_by(title: title, question: question, answer: answer, group_id: group.id)
-          if card.save
-            true
-          else
-            false
-          end
-        else
-          false
-        end
+      return 'Please attach a valid file!' if file_path.nil?
+      return 'Sorry invalid file type!' if !file_path.original_filename.end_with?('.csv')
+
+      file = CSV.read( file_path.tempfile, headers: true)
+      return 'Sorry invalid headers!' if file.headers != ["title", "question", "answer"]
+
+      file.each do |row|
+        title = row["title"]
+        question = row["question"]
+        answer = row["answer"]
+        card = Card.find_or_initialize_by(title: title, question: question, answer: answer, group_id: group.id)
+        card.save
       end
+      nil
     end
 
     def tagged_with(name)
@@ -50,5 +49,4 @@ class Card < ActiveRecord::Base
     end
 
   end
-
 end

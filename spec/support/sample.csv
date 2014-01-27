@@ -1,3 +1,1 @@
-title,question,answer
-Dan,What is an Dan?,A collection of Dan
-Van,What is a Van?,A collection of van
+title,question,answerArray,What is an Array?,A collection of objects.Migration,What is a Migration?,A feature of Active Record that allows you to evolve your database schema over time.

@@ -1,17 +1,13 @@
 class TopicsController < ApplicationController
 	before_filter :authenticate_user!
+	helper_method :sort_column, :sort_direction
 
 	def index
-		@topics = Topic.all
-	end
-
-	def new
-		@topic = Topic.new
+		@topics = Topic.search(params[:search]).order(sort_column + " " + sort_direction)
 	end
 
 	def create
 		@topic = Topic.new(topic_params)
-
 	end
 
 	def show
@@ -19,16 +15,14 @@ class TopicsController < ApplicationController
 		@cards = @topic.cards
 	end
 
-	def edit
+	private
 
-	end
+	def sort_column
+    Topic.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
 
-	def update
-
-	end
-
-	def destroy
-
-	end
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 
 end

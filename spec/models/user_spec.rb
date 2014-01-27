@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-  #Validations
 
   it { should have_valid(:first_name).when('Van') }
   it { should_not have_valid(:first_name).when(nil,'') }
@@ -35,8 +34,6 @@ describe User do
       expect(user).to_not be_valid
       expect(user.errors[:password_confirmation]).to_not be_blank
   end
-
-  #Associations
 
   it { should have_many :memberships }
 end

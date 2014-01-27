@@ -42,6 +42,9 @@ gem 'mini_magick'
 # Makes it easier to handle nested forms
 gem 'cocoon'
 
+# Makes pagination
+gem 'will_paginate'
+
 # Used for Amazon S3 Support
 gem "fog", "~> 1.3.1"
 

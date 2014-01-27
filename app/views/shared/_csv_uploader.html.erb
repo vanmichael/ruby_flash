@@ -2,6 +2,8 @@
   <%= form_tag import_group_path, multipart: true do %>
       <%= file_field_tag :file %>
       <%= submit_tag "Import CSV" %>
+      <span>File Type: CSV,</span>
+      <span>Headers: title, question, answer</span>
   <% end %>
 </div>
 

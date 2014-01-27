@@ -3,19 +3,21 @@ class GroupsController < ApplicationController
 	before_action :set_group, only: [:show, :edit, :update, :destroy, :import]
 
 	def index
-		@groups = Group.all
+		@groups = Group.search(params[:search]).order(sort_column + " " + sort_direction)
 	end
 
 	def new
 		@group = Group.new
+		@groups = Group.search(params[:search]).order(sort_column + " " + sort_direction)
 	end
 
 	def create
-		@group = Group.new(group_params)
+		@groups = Group.search(params[:search]).order(sort_column + " " + sort_direction)
+		@group = current_user.groups.build(group_params)
 			if @group.add
-				redirect_to new_group_path, notice: 'Group created!'
+				redirect_to new_my_group_path, notice: 'Group created!'
 			else
-				render action: 'new', notice: 'Group Not Created!'
+				render 'new', notice: 'Group Not Created!'
 			end
 	end
 
@@ -39,16 +41,26 @@ class GroupsController < ApplicationController
 	end
 
 	def import
-		file = params[:file].tempfile
-		if params[:file].original_filename.split('.')[1] == 'csv'
-			if Card.add_cards_from_file(@group, file)
-				redirect_to :back, notice: "Cards Added From CSV Successfully!"
-			else
-				redirect_to :back, notice: "Cards Not Added From CSV!"
-			end
+		file = params[:file]
+		error = Card.add_cards_from_file(@group, file)
+
+		if error.nil?
+			flash[:notice] = "Cards Added From CSV Successfully!"
 		else
-			redirect_to :back, notice: "Cards Not Added: must be a .csv file type!"
+			flash[:alert] = error
 		end
+
+		redirect_to @group
+		# file = params[:file].tempfile
+		# if params[:file].original_filename.split('.')[1] == 'csv'
+		# 	if Card.add_cards_from_file(@group, file)
+		# 		redirect_to :back, notice: "Cards Added From CSV Successfully!"
+		# 	else
+		# 		redirect_to :back, notice: "Cards Not Added From CSV!"
+		# 	end
+		# else
+		# 	redirect_to :back, notice: "Cards Not Added: must be a .csv file type!"
+		# end
 	end
 
 	private
@@ -60,4 +72,13 @@ class GroupsController < ApplicationController
 	def group_params
 		params.require(:group).permit(:name)
 	end
+
+	def sort_column
+		Group.column_names.include?(params[:sort]) ? params[:sort] : "name"
+	end
+
+	def sort_direction
+		%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+	end
+
 end
