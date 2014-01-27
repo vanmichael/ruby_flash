@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require_tree .
+//= require card_flip
+//= require jquery-ui
+//= require jquery.ui.accordion
 
 $(function(){
 

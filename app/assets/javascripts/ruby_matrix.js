@@ -1,5 +1,4 @@
 
-var canvas = document.getElementById('canvas');
 //Adjust canvas here to fit the entire screen
 canvas.height = window.screen.height;
 canvas.width = window.screen.width;
