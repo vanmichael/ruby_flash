@@ -1,0 +1,2 @@
+Array,What is an Array?,A collection of objects.
+Migration,What is a Migration?,A feature of Active Record that allows you to evolve your database schema over time.
