@@ -20,4 +20,6 @@ Stack:
 
 * TestSuite: Rspec and Capybara (unit testing and integration testing)
 
+For all other dependencies: Check the gemfile.
+
 {<img src="https://coveralls.io/repos/vanmichael/ruby_flash/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/vanmichael/ruby_flash]
