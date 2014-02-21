@@ -1,35 +1,23 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby Flash: http://rubyflash.herokuapp.com/
 
-Things you may want to cover:
+About:
 
-* Ruby version
+This is an application I made where users can create study groups and contribute to the same flash card decks as well as organize, tag and search specific flash cards.The app is completely mobile compatible. Click the link above for the app hosted on heroku.
 
-* System dependencies
+Stack:
 
-* Configuration
+* Serverside Language: Ruby 2.0
 
-* Database creation
+* Web Framework: Rails 4
 
-* Database initialization
+* Effects/Client Side: Jquery/Javascript
 
-* How to run the test suite
+* Database: Postgresql
 
+* ORM: Active Record
 
-
-
-
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* TestSuite: Rspec and Capybara (unit testing and integration testing)
 
 {<img src="https://coveralls.io/repos/vanmichael/ruby_flash/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/vanmichael/ruby_flash]
